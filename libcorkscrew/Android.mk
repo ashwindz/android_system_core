@@ -52,6 +52,9 @@ endif
 LOCAL_SHARED_LIBRARIES += libdl libcutils liblog libgccdemangle
 
 LOCAL_CFLAGS += -std=gnu99 -Werror
+ifneq ($(filter 4.8 4.9 4.8.% 4.9.%, $(shell $(TARGET_CC) --version)),) 
+LOCAL_CFLAGS += -Wno-error=unused-parameter
+endif
 LOCAL_MODULE := libcorkscrew
 LOCAL_MODULE_TAGS := optional
 
@@ -61,6 +64,9 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := test.c
 LOCAL_CFLAGS += -std=gnu99 -Werror -fno-inline-small-functions
+ifneq ($(filter 4.8 4.9 4.8.% 4.9.%, $(shell $(TARGET_CC) --version)),) 
+LOCAL_CFLAGS += -Wno-error=unused-parameter
+endif
 LOCAL_SHARED_LIBRARIES := libcorkscrew
 LOCAL_MODULE := libcorkscrew_test
 LOCAL_MODULE_TAGS := optional
@@ -77,6 +83,9 @@ LOCAL_SHARED_LIBRARIES += libgccdemangle
 LOCAL_STATIC_LIBRARIES += libcutils liblog
 LOCAL_LDLIBS += -ldl -lrt
 LOCAL_CFLAGS += -std=gnu99 -Werror
+ifneq ($(filter 4.8 4.9 4.8.% 4.9.%, $(shell $(TARGET_CC) --version)),) 
+LOCAL_CFLAGS += -Wno-error=unused-parameter
+endif
 LOCAL_MODULE := libcorkscrew
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_HOST_SHARED_LIBRARY)
@@ -85,6 +94,9 @@ include $(BUILD_HOST_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := test.c
 LOCAL_CFLAGS += -std=gnu99 -Werror -fno-inline-small-functions
+ifneq ($(filter 4.8 4.9 4.8.% 4.9.%, $(shell $(TARGET_CC) --version)),) 
+LOCAL_CFLAGS += -Wno-error=unused-parameter
+endif
 LOCAL_SHARED_LIBRARIES := libcorkscrew
 LOCAL_MODULE := libcorkscrew_test
 LOCAL_MODULE_TAGS := optional
