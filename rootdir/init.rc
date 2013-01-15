@@ -241,7 +241,7 @@ on post-fs-data
     #setprop vold.post_fs_data_done 1
 
 # Include extra init file
-    import /init.pb.rc
+    import /init.sm.rc
 
 on boot
 # basic network init
